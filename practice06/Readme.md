@@ -41,5 +41,5 @@ assign  six_digit_seg = { seg_left, seg_right, seg_left, seg_right, seg_left, se
 `Please fill up your source`
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI0NjMwMDg0MywtMTQ5NjU4NjM1M119
+eyJoaXN0b3J5IjpbMTI0NjMwMDg0M119
 -->
