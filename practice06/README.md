@@ -41,6 +41,7 @@ assign  six_digit_seg = { seg_left, seg_right, seg_left, seg_right, seg_left, se
 
 ![](https://github.com/RyuJinHa/LogicDesign/blob/master/practice06/fig/00_00_01.jpg)
 ![](https://github.com/RyuJinHa/LogicDesign/blob/master/practice06/fig/AA_AA_01.jpg)
+![](https://github.com/RyuJinHa/LogicDesign/blob/master/practice06/fig/01_01_01.jpg)
 
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbMTI0NjMwMDg0M119
