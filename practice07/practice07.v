@@ -403,15 +403,15 @@ module	top_hms_clock(
 		clk,
 		rst_n);
 
-output	[5:0]	o_seg_enb	;
-output		o_seg_dp	;
+output	[5:0]	o_seg_enb;
+output		o_seg_dp		;
 output	[6:0]	o_seg		;
 
 input		i_sw0		;
 input		i_sw1		;
 input		i_sw2		;
 input		clk		;
-input		rst_n	;
+input		rst_n		;
 
 wire hit_min    ;
 wire hit_sec    ;
@@ -422,7 +422,7 @@ wire sec_clk    ;
 
 minsec u_minsec (	
     
-    .o_sec(wire_sec),
+		.o_sec(wire_sec),
 		.o_min(wire_min),
 		.o_max_hit_sec(hit_sec),
 		.o_max_hit_min(hit_min),
