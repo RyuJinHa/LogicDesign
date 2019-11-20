@@ -620,18 +620,18 @@ input		i_buzz_en	;
 input		clk		     ;
 input		rst_n		   ;
 
-parameter	C = 95556	;
-parameter	D = 85131	;
-parameter	E = 75843	;
-parameter	F = 71586	;
-parameter	G = 63776	;
-parameter	A = 56818	;
-parameter	B = 50619	;
-parameter 	start = 5'd00 		;
+parameter	C = 191113	;
+parameter	D = 170262	;
+parameter	E = 151686	;
+parameter	F = 143173	;
+parameter	G = 63776	 ;
+parameter	A = 56818	 ;
+parameter	B = 50619	 ;
+parameter cnt = 5'b00000 ;
 wire		clk_bit		;
 nco	u_nco_bit(	
 		.o_gen_clk	( clk_bit	),
-		.i_nco_num	( 5000000	),
+		.i_nco_num	( 25000000	),
 		.clk		( clk		),
 		.rst_n		( rst_n		));
 
@@ -651,10 +651,7 @@ end
 reg	[31:0]	nco_num		;
 always @ (* ) begin
 
-
-	  start : begin
-	  end
-	  	case(cnt) 
+	case(cnt)
 		5'd00: nco_num = E	;
 		5'd01: nco_num = D	;
 		5'd02: nco_num = C	;
@@ -680,7 +677,6 @@ always @ (* ) begin
 		5'd22: nco_num = E	;
 		5'd23: nco_num = D	;
 		5'd24: nco_num = C	;
-		
 	endcase
 	
 end
