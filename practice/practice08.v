@@ -327,37 +327,39 @@ debounce	u3_debounce(
 		.o_sw		( sw3		),
 		.i_sw		( i_sw3		),
 		.clk		( clk_100hz	));
-
 reg	[1:0]	o_mode			;
+reg	[2:0] o_position		;
 
-always @(posedge sw0 or negedge rst_n) begin
+always @(posedge sw0 or posedge sw1 or negedge rst_n ) begin
+
 	if(rst_n == 1'b0) begin
 		o_mode <= MODE_CLOCK;
-	end else begin
+		o_position <= POS_SEC;
+	
+	end 
+	else if( sw0 == 1'b1) begin
 		if(o_mode >= MODE_ALARM) begin
 			o_mode <= MODE_CLOCK;
-		end else begin
+		end 
+		else if( o_mode <= MODE_ALARM) begin
 			o_mode <= o_mode + 1'b1;
-		
+			o_position <= POS_SEC;
 		end
-	end
-end
 
-reg		[2:0] o_position		;
-always @(posedge sw1  or negedge rst_n) begin
-	if(rst_n == 1'b0  ) begin
-		o_position <= POS_SEC;
+	 end 
+	 else if( sw1 == 1'b1) begin
 
-	end else begin
-		
 		if(o_position >= POS_HOUR) begin
 			o_position <= POS_SEC;
-	 	end else begin
+	 	end 
+		else if( o_position <= POS_HOUR) begin
 		o_position <= o_position + 1'b1;
-	  	end 
+	  	end
+	
 	end
-  	
+		
 end
+
 
 reg		o_alarm_en		;
 always @(posedge sw3 or negedge rst_n) begin
@@ -620,18 +622,18 @@ input		i_buzz_en	;
 input		clk		     ;
 input		rst_n		   ;
 
-parameter	C = 95556	;
-parameter	D = 85131	;
-parameter	E = 75843	;
-parameter	F = 71586	;
-parameter	G = 63776	;
-parameter	A = 56818	;
-parameter	B = 50619	;
-parameter 	start = 5'd00 		;
+parameter	C = 191113	;
+parameter	D = 170262	;
+parameter	E = 151686	;
+parameter	F = 143173	;
+parameter	G = 63776	 ;
+parameter	A = 56818	 ;
+parameter	B = 50619	 ;
+
 wire		clk_bit		;
 nco	u_nco_bit(	
 		.o_gen_clk	( clk_bit	),
-		.i_nco_num	( 5000000	),
+		.i_nco_num	( 25000000	),
 		.clk		( clk		),
 		.rst_n		( rst_n		));
 
@@ -649,12 +651,10 @@ always @ (posedge clk_bit or negedge rst_n) begin
 end
 
 reg	[31:0]	nco_num		;
-always @ (* ) begin
+always @ (*) begin
 
-
-	  start : begin
-	  end
-	  	case(cnt) 
+	
+	case(cnt)
 		5'd00: nco_num = E	;
 		5'd01: nco_num = D	;
 		5'd02: nco_num = C	;
@@ -680,9 +680,9 @@ always @ (* ) begin
 		5'd22: nco_num = E	;
 		5'd23: nco_num = D	;
 		5'd24: nco_num = C	;
-		
+	5'd00 : begin 
+	end
 	endcase
-	
 end
 
 wire		buzz		;
