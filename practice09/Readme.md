@@ -9,5 +9,6 @@
 
 ![](https://github.com/RyuJinHa/LogicDesign/blob/master/practice09/%EC%BA%A1%EC%B2%98.PNG)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNzcxNTI0NiwtNzQ3MjAwMzYzXX0=
+eyJoaXN0b3J5IjpbMTQ5Mzc0NDcwNCwtMTE3NzE1MjQ2LC03ND
+cyMDAzNjNdfQ==
 -->
