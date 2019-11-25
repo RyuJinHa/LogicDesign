@@ -6,7 +6,7 @@
 #### **Top Module** : ir_rx와 저번시간에 만든 fnd_dec와 led_disp를 이용하여  실습 장비의 LED에 맞는 Display Module 설계
 ### FPGA 실습 : 리모컨 동작에 따른 display확인 
 
-
+![](https://github.com/RyuJinHa/LogicDesign/blob/master/practice09/%EC%BA%A1%EC%B2%98.PNG)
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbLTc0NzIwMDM2M119
 -->
